@@ -1,11 +1,10 @@
 <div class="conversation-container">
-  <div class="messages-container" *ngFor="let item of messages.data.results">
-    <mat-card class="material-card">
-      <img mat-card-image src="{{ item.avatarUrl }}">
-      <mat-card-content>
+  <div class="messages-container" *ngIf="messages !== undefined">
+    <div *ngFor="let item of messages.data.results" class="message">
+      <img class="thumbnail" src="{{ item.avatarUrl }}" onerror="this.src = 'https://w0.pngwave.com/png/36/742/director-s-chair-film-director-chair-png-clip-art.png';" />
+      <div class="msg-content">
         <p class="material-card__description">{{ item.content }}</p>
-        <p class="material-card__footer-info">{{ item.authorName }} - {{ item.editedAt | date:'dd/MM/yyyy - HH:mm' }}</p>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
   </div>
 </div>

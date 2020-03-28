@@ -9,7 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'conversation',
-    loadChildren: './modules/views/views.module#ViewsModule'
+    loadChildren: () => import('./modules/views/views.module').then(m => m.ViewsModule)
+    //loadChildren: './modules/views/views.module#ViewsModule'
   }
 ];
 

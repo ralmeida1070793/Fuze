@@ -14,7 +14,7 @@ export class ConversationDataService {
   constructor(
     private httpClient: HttpClient
   ) {
-    this.api = 'http://docs.baas.fuze.com/chat/stage';
+    this.api = 'https://api-stage.fuze.com/chat/v2';
     this.apiKey = '2.vThQshVYyiGOzgJ.dXNlcjo2Z0FpMjkxbnp6OkN4Z2JyQ1poYlg';
   }
 
@@ -50,7 +50,7 @@ export class ConversationDataService {
   }
 
   public createMessage(conversationId: number, request: CreateMessageRequestModel): Observable<responses.CreateMessageResponseModel>{
-    const endpoint = `${this.api}/conversations`;
+    const endpoint = `${this.api}/conversations/${conversationId}/messages`;
 
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + this.apiKey
