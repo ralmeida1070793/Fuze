@@ -45,17 +45,23 @@ export class ConversationComponent implements OnInit, OnDestroy {
         // tslint:disable-next-line:max-line-length
         this.conversation = response.data.results.find(conversation => conversation.participants[0].entityId === this.conversationRequest.invites[0] && conversation.participants[1].entityId ===  'user_430775508375430423');
         if (this.conversation !== undefined) {
+          /// Gets current messages for the conversation
           this.GetMessages();
+          /// Registers the interval for getting the available messages every minute
           this.RegisterMessagesInterval();
+          /// Sends the forecast
           this.SendForecast();
+          /// Registers the interval for sending the forecast every hout
           this.RegisterSendForecastInterval();
         } else {
           this.conversationDataService.createConversation(this.conversationRequest).subscribe(
             createResponse => {
               this.conversation = createResponse.data;
-              this.GetMessages();
+              /// Registers the interval for getting the available messages every minute
               this.RegisterMessagesInterval();
+              /// Sends the forecast
               this.SendForecast();
+              /// Registers the interval for sending the forecast every hout
               this.RegisterSendForecastInterval();
             }
           );
