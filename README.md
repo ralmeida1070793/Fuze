@@ -1,6 +1,6 @@
 # FuzeForecast
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0-rc.0.
+## Disclaimer
+Although it wasn't a requirement, I chose to develop the challenge in Angular 9. This choice was motivated by the need for the script to run in NodeJS version 12.16 and supported in typescript 3.7. In addition, the choice for the usage of Angular is also justified for the way how the response models from the API are handled.
 
 ## Development server
 
