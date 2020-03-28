@@ -15,9 +15,9 @@ export class ForecastDataService {
     this.api = 'https://api.weather.gov/stations/KBOS/observations/latest';
   }
 
-  public getForecast(station: string): Observable<ForecastModel>
+  public getForecast(): Observable<ForecastModel>
   {
-    const endpoint = `${this.api}/conversations`;
+    const endpoint = `${this.api}`;
 
     return this.httpClient.get<any>(endpoint).pipe(map(response => {
         return {

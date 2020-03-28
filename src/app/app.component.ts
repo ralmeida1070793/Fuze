@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'fuze-forecast';
+  title = 'CTW-Articles';
+
+  constructor(
+    private router: Router) {
+
+  }
+
+  public onGoBack() {
+    this.router.navigate(['conversation']);
+  }
 }

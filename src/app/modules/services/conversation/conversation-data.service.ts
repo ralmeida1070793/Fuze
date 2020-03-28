@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import * as responses from '../../models/response-models';
 import * as requests from '../../models/request-models/conversation';
-import {CreateMessageRequestModel} from '../../models/request-models/Message/create-message-request.model';
+import {CreateMessageRequestModel} from '../../models/request-models/message/create-message-request.model';
 
 @Injectable()
 export class ConversationDataService {
@@ -37,16 +36,6 @@ export class ConversationDataService {
     });
 
     return this.httpClient.post<responses.ConversationResponseModel>(endpoint, request, {headers});
-  }
-
-  public getConversation(id: number): Observable<responses.ConversationResponseModel> {
-    const endpoint = `${this.api}/conversations/${id}`;
-
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.apiKey
-    });
-
-    return this.httpClient.get<responses.ConversationResponseModel>(endpoint, {headers});
   }
 
   public getMessages(conversationId: number): Observable<responses.GetMessagesResponseModel>

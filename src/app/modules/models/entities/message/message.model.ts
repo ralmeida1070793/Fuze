@@ -1,7 +1,3 @@
-import {MessageKindModel} from './message-kind.model';
-import {ReactionModel} from './reaction.model';
-import {AttachmentModel} from './attachment.model';
-
 export interface MessageModel {
   authorId: string;
   authorName: string;
@@ -10,9 +6,7 @@ export interface MessageModel {
   content: string;
   editedAt: Date;
   id: string;
-  kind: MessageKindModel;
+  kind: string;
   postedAt: Date;
   clientMessageId: string;
-  reactions: ReactionModel[];
-  attachments: AttachmentModel[];
 }

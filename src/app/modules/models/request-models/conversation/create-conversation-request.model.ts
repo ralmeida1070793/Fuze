@@ -1,7 +1,5 @@
-import {ConversationKindModel} from '../../entities/conversation/conversation-kind.model';
-
-export interface CreateConversationRequestModel {
-  kind: ConversationKindModel;
-  name: string;
-  invites: string[];
+export class CreateConversationRequestModel {
+  public kind: string;
+  public name: string;
+  public invites: string[];
 }
